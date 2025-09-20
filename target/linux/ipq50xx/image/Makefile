@@ -93,4 +93,21 @@ define Device/xiaomi_cr881x
 endef
 TARGET_DEVICES += xiaomi_cr881x
 
+define Device/zyxel_scr50axe
+  $(call Device/FitImage)
+  $(call Device/UbiFit)
+  SOC := ipq5000
+  DEVICE_VENDOR := Zyxel
+  DEVICE_MODEL := SCR50AXE
+  BLOCKSIZE := 128k
+  PAGESIZE := 2048
+  DEVICE_DTS_CONFIG := config@mp03.5-c1
+  IMAGES := nand-factory.ubi
+  DEVICE_PACKAGES := \
+	ath11k-firmware-ipq5018 \
+	ath11k-firmware-qcn6122 \
+	ipq-wifi-zyxel_scr50axe
+endef
+TARGET_DEVICES += zyxel_scr50axe
+
 $(eval $(call BuildImage))

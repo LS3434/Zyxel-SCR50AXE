@@ -11,7 +11,8 @@ case "$FIRMWARE" in
 		case "$board" in
 			cmcc,rax3000q|\
 			redmi,ax3000|\
-			xiaomi,cr881x)
+			xiaomi,cr881x|\
+			zyxel,scr50axe)
 				caldata_extract "0:ART" 0x1000 0x20000
 				;;
 		esac
@@ -20,8 +21,16 @@ case "$FIRMWARE" in
 		case "$board" in
 			cmcc,rax3000q|\
 			redmi,ax3000|\
-			xiaomi,cr881x)
+			xiaomi,cr881x|\
+			zyxel,scr50axe)
 				caldata_extract "0:ART" 0x26800 0x20000
+				;;
+		esac
+		;;
+	"ath11k/qcn6122/hw1.0/caldata_2.bin")
+		case "$board" in
+			zyxel,scr50axe)
+				caldata_extract "0:ART" 0x4c000 0x20000  
 				;;
 		esac
 		;;
